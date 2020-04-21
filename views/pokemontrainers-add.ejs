@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" href="/style.css" rel="stylesheet">
+    <title>Add Pokemon Trainer</title>
+</head>
+<body>
+    <h1>Add New Pokemon Trainer</h1>
+    <p>
+        <a href="/pokemontrainers">List Pokemon Trainers</a>
+    </p>
+    <% if (Array.isArray(error)) { %>
+        <h4>
+            <% for(let i = 0; i < error.length; i++) { %>
+                <%= error[i] %><br/>
+            <% } %>
+        </h4>
+    <% } else { %>
+        <h4><%= error %></h4>
+    <% } %>
+    <form action="/pokemontrainers/add" method="POST">
+        <label for="PokemonId">Pokemon : </label>
+        <select name="PokemonId" id="PokemonId"> 
+            <option value="">-- Choose Pokemon --</option>
+            <% for (let i = 0; i < pokemons.length; i++) { %>
+                <option value="<%= pokemons[i].id %>"><%= pokemons[i].name %></option>
+            <% } %>
+        </select><br/>
+        <label for="TrainerId">Trainer : </label>
+        <select name="TrainerId" id="TrainerId"> 
+            <option value="">-- Choose Trainer --</option>
+            <% for (let i = 0; i < trainers.length; i++) { %>
+                <option value="<%= trainers[i].id %>"><%= trainers[i].getFullName() %></option>
+            <% } %>
+        </select><br/>
+        <input type="submit" value="Add Pokemon Trainer">
+    </form>
+</body>
+</html>

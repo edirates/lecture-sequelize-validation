@@ -1,0 +1,22 @@
+[
+    {
+        "PokemonId" : 1,
+        "TrainerId" : 1
+    },
+    {
+        "PokemonId" : 3,
+        "TrainerId" : 1
+    },
+    {
+        "PokemonId" : 2,
+        "TrainerId" : 2
+    },
+    {
+        "PokemonId" : 1,
+        "TrainerId" : 3
+    },
+    {
+        "PokemonId" : 2,
+        "TrainerId" : 3
+    }
+]

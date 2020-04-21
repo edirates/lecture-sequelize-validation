@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" href="/style.css" rel="stylesheet">
+    <title>Gyms</title>
+</head>
+<body>
+    <h1>List Gyms</h1>
+    <p>
+        <a href="/">Home</a> || 
+        <a href="/gyms/add">Add Gym</a>
+    </p>
+    <% if (Array.isArray(error)) { %>
+        <h4>
+            <% for(let i = 0; i < error.length; i++) { %>
+                <%= error[i] %><br/>
+            <% } %>
+        </h4>
+    <% } else { %>
+        <h4><%= error %></h4>
+    <% } %>
+    <% if (message) { %>
+        <h3><%= message %></h3>
+    <% } %>
+    <table border>
+        <thead>
+            <th>No.</th>
+            <th>Gym Name</th>
+            <th>Manager Name</th>
+            <th>List of Trainers</th>
+        </thead>
+        <tbody>
+            <% for (let i = 0; i < gyms.length; i++) { %>
+                <tr>
+                    <td><%= i + 1 %></td>
+                    <td><%= gyms[i].name %></td>
+                    <td><%= (gyms[i].Manager) ? gyms[i].Manager.name : "-" %></td>
+                    <% 
+                        let trainers = gyms[i].Trainers.map((trainer) => {
+                            return trainer.getFullName();
+                        });
+                    %>
+                    <td><%= (trainers.length > 0) ? trainers.join(", ") : "-" %></td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</body>
+</html>

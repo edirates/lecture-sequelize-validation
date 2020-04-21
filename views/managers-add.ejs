@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" href="/style.css" rel="stylesheet">
+    <title>Add Manager</title>
+</head>
+<body>
+    <h1>Add New Manager</h1>
+    <p>
+        <a href="/managers">List Managers</a>
+    </p>
+    <% if (Array.isArray(error)) { %>
+        <h4>
+            <% for(let i = 0; i < error.length; i++) { %>
+                <%= error[i] %><br/>
+            <% } %>
+        </h4>
+    <% } else { %>
+        <h4><%= error %></h4>
+    <% } %>
+    <form action="/managers/add" method="POST">
+        <label for="name">Manager Name : </label>
+        <input type="text" name="name" id="name" placeholder="Manager name"> <br/>
+        <label for="GymId">Gym : </label>
+        <select name="GymId" id="GymId"> 
+            <option value="">-- Choose Gym --</option>
+            <% for (let i = 0; i < gyms.length; i++) { %>
+                <option value="<%= gyms[i].id %>"><%= gyms[i].name %></option>
+            <% } %>
+        </select><br/>
+        <input type="submit" value="Add Manager">
+    </form>
+</body>
+</html>

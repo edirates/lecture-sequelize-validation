@@ -1,0 +1,26 @@
+[
+    {
+        "first_name" : "Ash",
+        "last_name" : "Ketchum",
+        "birth_date" : "1995-02-02",
+        "age" : 25,
+        "points" : 1000,
+        "GymId" : 1
+    },
+    {
+        "first_name" : "Brock",
+        "last_name" : "Takeshi",
+        "birth_date" : "1990-10-10",
+        "age" : 30,
+        "points" : 1500,
+        "GymId" : 1
+    },
+    {
+        "first_name" : "Misty",
+        "last_name" : "Kashumi",
+        "birth_date" : "2000-05-05",
+        "age" : 20,
+        "points" : 500,
+        "GymId" : 2
+    }
+]

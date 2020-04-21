@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" href="/style.css" rel="stylesheet">
+    <title>Pokemon Trainers</title>
+</head>
+<body>
+    <h1>List Pokemon Trainers</h1>
+    <p>
+        <a href="/">Home</a> || 
+        <a href="/pokemontrainers/add">Add Pokemon Trainer</a>
+    </p>
+    <% if (Array.isArray(error)) { %>
+        <h4>
+            <% for(let i = 0; i < error.length; i++) { %>
+                <%= error[i] %><br/>
+            <% } %>
+        </h4>
+    <% } else { %>
+        <h4><%= error %></h4>
+    <% } %>
+    <% if (message) { %>
+        <h3><%= message %></h3>
+    <% } %>
+    <table border>
+        <thead>
+            <th>No.</th>
+            <th>Pokemon Name</th>
+            <th>Type</th>
+            <th>Level</th>
+            <th>Status</th>
+            <th>Trainer Name</th>
+        </thead>
+        <tbody>
+            <% for (let i = 0; i < pokemonTrainers.length; i++) { %>
+                <tr>
+                    <td><%= i + 1 %></td>
+                    <td><%= pokemonTrainers[i].Pokemon.name %></td>
+                    <td><%= pokemonTrainers[i].Pokemon.type %></td>
+                    <td><%= pokemonTrainers[i].Pokemon.level %></td>
+                    <td><%= pokemonTrainers[i].Pokemon.status %></td>
+                    <td><%= pokemonTrainers[i].Trainer.getFullName() %></td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</body>
+</html>
